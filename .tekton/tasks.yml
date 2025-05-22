@@ -17,7 +17,7 @@ spec:
         runAsNonRoot: false
         runAsUser: 0
       script: |
-        #!/usr/bin/env sh
+        #!/usr/bin/env sh   
         set -eu
         echo "Eliminando todos los archivos de ${WORKSPACE_SOURCE_PATH} ..."
         if [ -d "${WORKSPACE_SOURCE_PATH}" ] ; then
