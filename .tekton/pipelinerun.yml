@@ -1,0 +1,19 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: cd-pipeline-run
+spec:
+  pipelineRef:
+    name: cd-pipeline
+  workspaces:
+    - name: source
+      persistentVolumeClaim:
+        claimName: oc-lab-pvc
+    - name: output
+      persistentVolumeClaim:
+        claimName: oc-lab-pvc
+  params:
+    - name: app-name
+      value: my-app
+    - name: build-image
+      value: my-image:latest
