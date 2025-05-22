@@ -2,9 +2,11 @@ name: Flujo de trabajo de CI
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build:
@@ -27,7 +29,10 @@ jobs:
           flake8 service --count --max-complexity=10 --max-line-length=127 --statistics
 
       - name: Ejecutar pruebas unitarias con nose
-        run: nosetests -v --with-spec --spec-color --with-coverage --cover-package=app
+        run: |
+          nosetests -v --with-spec --spec-color --with-coverage --cover-package=app
+
+
 
 
 
